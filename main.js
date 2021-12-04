@@ -55,6 +55,18 @@ class Field {
                 field[y][x] = prob > percentage ? fieldCharacter : hole;
             }
         }
+        //se establece el lugar del sombrero
+        const hatLocation= {
+            x: Math.floor(Math.random() * width),
+            y: Math.floor(Math.random() * height)
+        };
+            //establecer que no inicie en el punto inicial 0,0
+        while(hatLocation.x === 0 && hatLocation.y === 0) {
+            hatLocation.x = Math.floor(Math.random() * width);
+            hatLocation.y = Math.floor(Math.random() * height);
+        }
+        field[hatLocation.y][hatLocation.x ] = hat;
+      return field;
     }
 }
 
